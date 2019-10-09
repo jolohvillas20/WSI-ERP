@@ -1,0 +1,839 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E15883C2-29B4-48A4-AD79-7FE44C2D77B3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SOPOINV</RootNamespace>
+    <AssemblyName>SOPOINV</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.94.2\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.3.0\lib\net45\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Exchange.WebServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Exchange.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Exchange.WebServices.Auth, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Exchange.WebServices.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Practices.ObjectBuilder.dll.3.1.0\lib\2.0\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common">
+      <HintPath>D:\ERP Latest 01-07-2019\ERP\bin\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization">
+      <HintPath>D:\ERP Latest 01-07-2019\ERP\bin\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design">
+      <HintPath>D:\ERP Latest 01-07-2019\ERP\bin\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <HintPath>D:\ERP Latest 01-07-2019\ERP\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign">
+      <HintPath>D:\ERP Latest 01-07-2019\ERP\bin\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms">
+      <HintPath>D:\ERP Latest 01-07-2019\ERP\bin\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms">
+      <HintPath>D:\ERP Latest 01-07-2019\ERP\bin\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="POSOINV">
+      <HintPath>..\Sample\bin\Debug\POSOINV.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SqlClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.5.1\lib\net451\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WSICrytography">
+      <HintPath>..\Sample\bin\Debug\WSICrytography.dll</HintPath>
+    </Reference>
+    <Reference Include="WSIExchange, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\WSIExchange.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="API\ERP_Credit_Term.asmx" />
+    <Content Include="API\ERP_Customer_Details.asmx" />
+    <Content Include="API\ERP_Item_Master.asmx" />
+    <Content Include="API\ERP_SO_Attachment.asmx" />
+    <Content Include="API\ERP_SO_Detail.asmx" />
+    <Content Include="API\ERP_SO_Header.asmx" />
+    <Content Include="API\SO_Creation_API.svc" />
+    <Content Include="Content\ajax\jquery-ui.css" />
+    <Content Include="Content\ajax\jquery-ui.js" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\SOstyles\bootstrap-datepicker.js" />
+    <Content Include="Content\SOstyles\bootstrap-datepicker.min.js" />
+    <Content Include="Content\SOstyles\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\SOstyles\bootstrap-datetimepicker.css" />
+    <Content Include="Content\SOstyles\bootstrap-datetimepicker.js" />
+    <Content Include="Content\SOstyles\bootstrap.min.css" />
+    <Content Include="Content\SOstyles\jquery.min.js" />
+    <Content Include="Content\SOstyles\moment.min.js" />
+    <Content Include="Content\SOstyles\w3.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\accordion.css" />
+    <Content Include="css\bootstrap-datetimepicker.css" />
+    <Content Include="css\bootstrap-datetimepicker.min.css" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrapValidator.css" />
+    <Content Include="css\bootstrapValidator.min.css" />
+    <Content Include="css\button.css" />
+    <Content Include="css\ButtonBreadcrumb.css" />
+    <Content Include="css\Comments.css" />
+    <Content Include="css\DatePicker\bootstrap-datepicker.css" />
+    <Content Include="css\DatePicker\bootstrap-datepicker.js" />
+    <Content Include="css\DatePicker\bootstrap-datepicker.min.css" />
+    <Content Include="css\DatePicker\bootstrap-datepicker.min.js" />
+    <Content Include="css\DatePicker\bootstrap-datepicker.standalone.css" />
+    <Content Include="css\DatePicker\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="css\DatePicker\bootstrap-datepicker3.css" />
+    <Content Include="css\DatePicker\bootstrap-datepicker3.min.css" />
+    <Content Include="css\DatePicker\bootstrap-datepicker3.standalone.css" />
+    <Content Include="css\DatePicker\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="css\DatePicker\datepicker1.css" />
+    <Content Include="css\DatePicker\datepicker1.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.nb.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="css\DatePicker\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\img\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\img\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\img\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\img\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\img\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\img\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\img\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\img\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\img\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\img\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\img\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\img\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\img\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\img\ui-icons_222222_256x240.png" />
+    <Content Include="css\img\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\img\ui-icons_454545_256x240.png" />
+    <Content Include="css\img\ui-icons_888888_256x240.png" />
+    <Content Include="css\img\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\img\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\img\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\Login.css" />
+    <Content Include="css\Modal1.css" />
+    <Content Include="css\StyleSheet1.css" />
+    <Content Include="css\StyleSheet2.css" />
+    <Content Include="css\table.css" />
+    <Content Include="css\tbl1.css" />
+    <Content Include="css\TimePicker\bootstrap-timepicker.css" />
+    <Content Include="css\TimePicker\bootstrap-timepicker.js" />
+    <Content Include="css\TimePicker\bootstrap-timepicker.min.css" />
+    <Content Include="css\TimePicker\bootstrap-timepicker.min.js" />
+    <Content Include="css\w3.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Forms\InventoryManagement\InventoryTransactions\CostAdjustment.aspx" />
+    <Content Include="Forms\InventoryManagement\InventoryTransactions\LandingPage.aspx" />
+    <Content Include="Forms\InventoryManagement\InventoryTransactions\MIR.aspx" />
+    <Content Include="Forms\InventoryManagement\InventoryTransactions\MIS.aspx" />
+    <Content Include="Forms\InventoryManagement\InventoryTransactions\RTS.aspx" />
+    <Content Include="Forms\InventoryManagement\InventoryTransactions\UpdateForex.aspx" />
+    <Content Include="Forms\Purchasing\ImportShipment.aspx" />
+    <Content Include="Forms\SalesManagement\CustomerMaintenance.aspx" />
+    <Content Include="Forms\DownloadReports\DownloadPickActivity.aspx" />
+    <Content Include="Forms\DownloadReports\DownloadStockTransfer.aspx" />
+    <Content Include="Forms\DownloadReports\DownloadPurchaseOrder.aspx" />
+    <Content Include="Forms\DownloadReports\DownloadPurchaseReceipt.aspx" />
+    <Content Include="Forms\DownloadReports\DownloadSalesReturn.aspx" />
+    <Content Include="Forms\DownloadReports\DownloadSO.aspx" />
+    <Content Include="Forms\InventoryManagement\Inventory.aspx" />
+    <Content Include="Forms\InventoryManagement\InventoryTransactions\InventoryHistory.aspx" />
+    <Content Include="Forms\InventoryManagement\InventoryTransactions\InventoryReports.aspx" />
+    <Content Include="Forms\SalesManagement\InvoiceManagement.aspx" />
+    <Content Include="Forms\Accounting\Payments.aspx" />
+    <Content Include="Forms\InventoryManagement\InventoryTransactions\SalesReturn.aspx" />
+    <Content Include="Forms\Purchasing\POCreation.aspx" />
+    <Content Include="Forms\Purchasing\Announcement.aspx" />
+    <Content Include="Forms\SalesManagement\SOCreation.aspx" />
+    <Content Include="Forms\InventoryManagement\InventoryTransactions\StockTransfers.aspx" />
+    <Content Include="Images\bill_200.png" />
+    <Content Include="Images\create_document_200.png" />
+    <Content Include="Images\delete-sign_30.png" />
+    <Content Include="Images\save_30.png" />
+    <Content Include="Images\warehouse_150.png" />
+    <Content Include="Images\warehouse_200.png" />
+    <Content Include="LandingPage.aspx" />
+    <Content Include="Forms\OtherMaintenance.aspx" />
+    <Content Include="Forms\InventoryManagement\PickActivity.aspx" />
+    <Content Include="Images\delete-sign_25.png" />
+    <Content Include="Images\plus_30.png" />
+    <Content Include="Images\search_30.png" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\npm.js" />
+    <Content Include="js\objectItem.js" />
+    <Content Include="js\w3.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Scripts\accordionajax.txt" />
+    <Content Include="Scripts\accordionbootstrap.txt" />
+    <Content Include="Scripts\angular-strap.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrapValidator.js" />
+    <Content Include="Scripts\bootstrapValidator.min.js" />
+    <Content Include="Scripts\bootstrap_3.3.7_js_bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <None Include="Properties\PublishProfiles\Live_Test.pubxml" />
+    <None Include="Properties\PublishProfiles\Local_Test.pubxml" />
+    <Content Include="Resources\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="Resources\DataSet1.xsd" />
+    <Content Include="Resources\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="Resources\dsPurchaseReciept.xsc">
+      <DependentUpon>dsPurchaseReciept.xsd</DependentUpon>
+    </Content>
+    <Content Include="Resources\dsPurchaseOrder.xsc">
+      <DependentUpon>dsPurchaseOrder.xsd</DependentUpon>
+    </Content>
+    <None Include="Resources\dsPurchaseOrder.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPurchaseOrder.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\dsPurchaseOrder.xss">
+      <DependentUpon>dsPurchaseOrder.xsd</DependentUpon>
+    </Content>
+    <None Include="Resources\dsPurchaseReciept.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPurchaseReciept.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\dsPurchaseReciept.xss">
+      <DependentUpon>dsPurchaseReciept.xsd</DependentUpon>
+    </Content>
+    <Content Include="Resources\dsReturns.xsc">
+      <DependentUpon>dsReturns.xsd</DependentUpon>
+    </Content>
+    <None Include="Resources\dsReturns.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReturns.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\dsReturns.xss">
+      <DependentUpon>dsReturns.xsd</DependentUpon>
+    </Content>
+    <Content Include="Resources\dsStockTransfer.xsc">
+      <DependentUpon>dsStockTransfer.xsd</DependentUpon>
+    </Content>
+    <None Include="Resources\dsStockTransfer.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsStockTransfer.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\dsStockTransfer.xss">
+      <DependentUpon>dsStockTransfer.xsd</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery_3.3.1_jquery.min.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\mySel.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\ValidateFields.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\ERP_Credit_Term.asmx.cs">
+      <DependentUpon>ERP_Credit_Term.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="API\ERP_Customer_Details.asmx.cs">
+      <DependentUpon>ERP_Customer_Details.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="API\ERP_Item_Master.asmx.cs">
+      <DependentUpon>ERP_Item_Master.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="API\ERP_SO_Attachment.asmx.cs">
+      <DependentUpon>ERP_SO_Attachment.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="API\ERP_SO_Detail.asmx.cs">
+      <DependentUpon>ERP_SO_Detail.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="API\ERP_SO_Header.asmx.cs">
+      <DependentUpon>ERP_SO_Header.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="API\ISO_Creation_API.cs" />
+    <Compile Include="API\SO_Creation_API.svc.cs">
+      <DependentUpon>SO_Creation_API.svc</DependentUpon>
+    </Compile>
+    <Compile Include="class\clsCustomerMaintenance.cs" />
+    <Compile Include="class\clsSOCreation.cs" />
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\CostAdjustment.aspx.cs">
+      <DependentUpon>CostAdjustment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\CostAdjustment.aspx.designer.cs">
+      <DependentUpon>CostAdjustment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\LandingPage.aspx.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\LandingPage.aspx.designer.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\MIR.aspx.cs">
+      <DependentUpon>MIR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\MIR.aspx.designer.cs">
+      <DependentUpon>MIR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\MIS.aspx.cs">
+      <DependentUpon>MIS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\MIS.aspx.designer.cs">
+      <DependentUpon>MIS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\RTS.aspx.cs">
+      <DependentUpon>RTS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\RTS.aspx.designer.cs">
+      <DependentUpon>RTS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\UpdateForex.aspx.cs">
+      <DependentUpon>UpdateForex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\UpdateForex.aspx.designer.cs">
+      <DependentUpon>UpdateForex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Purchasing\ImportShipment.aspx.cs">
+      <DependentUpon>ImportShipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Purchasing\ImportShipment.aspx.designer.cs">
+      <DependentUpon>ImportShipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SalesManagement\CustomerMaintenance.aspx.cs">
+      <DependentUpon>CustomerMaintenance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\SalesManagement\CustomerMaintenance.aspx.designer.cs">
+      <DependentUpon>CustomerMaintenance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadPickActivity.aspx.cs">
+      <DependentUpon>DownloadPickActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadPickActivity.aspx.designer.cs">
+      <DependentUpon>DownloadPickActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadStockTransfer.aspx.cs">
+      <DependentUpon>DownloadStockTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadStockTransfer.aspx.designer.cs">
+      <DependentUpon>DownloadStockTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadPurchaseOrder.aspx.cs">
+      <DependentUpon>DownloadPurchaseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadPurchaseOrder.aspx.designer.cs">
+      <DependentUpon>DownloadPurchaseOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadPurchaseReceipt.aspx.cs">
+      <DependentUpon>DownloadPurchaseReceipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadPurchaseReceipt.aspx.designer.cs">
+      <DependentUpon>DownloadPurchaseReceipt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadSalesReturn.aspx.cs">
+      <DependentUpon>DownloadSalesReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadSalesReturn.aspx.designer.cs">
+      <DependentUpon>DownloadSalesReturn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadSO.aspx.cs">
+      <DependentUpon>DownloadSO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\DownloadReports\DownloadSO.aspx.designer.cs">
+      <DependentUpon>DownloadSO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\Inventory.aspx.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\Inventory.aspx.designer.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\InventoryHistory.aspx.cs">
+      <DependentUpon>InventoryHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\InventoryHistory.aspx.designer.cs">
+      <DependentUpon>InventoryHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\InventoryReports.aspx.cs">
+      <DependentUpon>InventoryReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\InventoryReports.aspx.designer.cs">
+      <DependentUpon>InventoryReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SalesManagement\InvoiceManagement.aspx.cs">
+      <DependentUpon>InvoiceManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\SalesManagement\InvoiceManagement.aspx.designer.cs">
+      <DependentUpon>InvoiceManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Accounting\Payments.aspx.cs">
+      <DependentUpon>Payments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Accounting\Payments.aspx.designer.cs">
+      <DependentUpon>Payments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\SalesReturn.aspx.cs">
+      <DependentUpon>SalesReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\SalesReturn.aspx.designer.cs">
+      <DependentUpon>SalesReturn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Purchasing\POCreation.aspx.cs">
+      <DependentUpon>POCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Purchasing\POCreation.aspx.designer.cs">
+      <DependentUpon>POCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Purchasing\Announcement.aspx.cs">
+      <DependentUpon>Announcement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Purchasing\Announcement.aspx.designer.cs">
+      <DependentUpon>Announcement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SalesManagement\SOCreation.aspx.cs">
+      <DependentUpon>SOCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\SalesManagement\SOCreation.aspx.designer.cs">
+      <DependentUpon>SOCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\StockTransfers.aspx.cs">
+      <DependentUpon>StockTransfers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\InventoryTransactions\StockTransfers.aspx.designer.cs">
+      <DependentUpon>StockTransfers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandingPage.aspx.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandingPage.aspx.designer.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OtherMaintenance.aspx.cs">
+      <DependentUpon>OtherMaintenance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\OtherMaintenance.aspx.designer.cs">
+      <DependentUpon>OtherMaintenance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\PickActivity.aspx.cs">
+      <DependentUpon>PickActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryManagement\PickActivity.aspx.designer.cs">
+      <DependentUpon>PickActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\DataSet1.Designer.cs" />
+    <Compile Include="Resources\dsPurchaseOrder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPurchaseOrder.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\dsPurchaseReciept.cs">
+      <DependentUpon>dsPurchaseReciept.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\dsPurchaseReciept.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPurchaseReciept.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\dsReturns.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReturns.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\dsStockTransfer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsStockTransfer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Site Master\SiteMaster.Master.cs">
+      <DependentUpon>SiteMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site Master\SiteMaster.Master.designer.cs">
+      <DependentUpon>SiteMaster.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-datetimepicker-build.less" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\alerts.less" />
+    <Content Include="Content\bootstrap\badges.less" />
+    <Content Include="Content\bootstrap\bootstrap.less" />
+    <Content Include="Content\bootstrap\breadcrumbs.less" />
+    <Content Include="Content\bootstrap\button-groups.less" />
+    <Content Include="Content\bootstrap\buttons.less" />
+    <Content Include="Content\bootstrap\carousel.less" />
+    <Content Include="Content\bootstrap\close.less" />
+    <Content Include="Content\bootstrap\code.less" />
+    <Content Include="Content\bootstrap\component-animations.less" />
+    <Content Include="Content\bootstrap\dropdowns.less" />
+    <Content Include="Content\bootstrap\forms.less" />
+    <Content Include="Content\bootstrap\glyphicons.less" />
+    <Content Include="Content\bootstrap\grid.less" />
+    <Content Include="Content\bootstrap\input-groups.less" />
+    <Content Include="Content\bootstrap\jumbotron.less" />
+    <Content Include="Content\bootstrap\labels.less" />
+    <Content Include="Content\bootstrap\list-group.less" />
+    <Content Include="Content\bootstrap\media.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="Content\bootstrap\mixins\alerts.less" />
+    <Content Include="Content\bootstrap\mixins\background-variant.less" />
+    <Content Include="Content\bootstrap\mixins\border-radius.less" />
+    <Content Include="Content\bootstrap\mixins\buttons.less" />
+    <Content Include="Content\bootstrap\mixins\center-block.less" />
+    <Content Include="Content\bootstrap\mixins\clearfix.less" />
+    <Content Include="Content\bootstrap\mixins\forms.less" />
+    <Content Include="Content\bootstrap\mixins\gradients.less" />
+    <Content Include="Content\bootstrap\mixins\grid-framework.less" />
+    <Content Include="Content\bootstrap\mixins\grid.less" />
+    <Content Include="Content\bootstrap\mixins\hide-text.less" />
+    <Content Include="Content\bootstrap\mixins\image.less" />
+    <Content Include="Content\bootstrap\mixins\labels.less" />
+    <Content Include="Content\bootstrap\mixins\list-group.less" />
+    <Content Include="Content\bootstrap\mixins\nav-divider.less" />
+    <Content Include="Content\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="Content\bootstrap\mixins\opacity.less" />
+    <Content Include="Content\bootstrap\mixins\pagination.less" />
+    <Content Include="Content\bootstrap\mixins\panels.less" />
+    <Content Include="Content\bootstrap\mixins\progress-bar.less" />
+    <Content Include="Content\bootstrap\mixins\reset-filter.less" />
+    <Content Include="Content\bootstrap\mixins\reset-text.less" />
+    <Content Include="Content\bootstrap\mixins\resize.less" />
+    <Content Include="Content\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="Content\bootstrap\mixins\size.less" />
+    <Content Include="Content\bootstrap\mixins\tab-focus.less" />
+    <Content Include="Content\bootstrap\mixins\table-row.less" />
+    <Content Include="Content\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="Content\bootstrap\mixins\text-overflow.less" />
+    <Content Include="Content\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="Content\bootstrap\modals.less" />
+    <Content Include="Content\bootstrap\navbar.less" />
+    <Content Include="Content\bootstrap\navs.less" />
+    <Content Include="Content\bootstrap\normalize.less" />
+    <Content Include="Content\bootstrap\pager.less" />
+    <Content Include="Content\bootstrap\pagination.less" />
+    <Content Include="Content\bootstrap\panels.less" />
+    <Content Include="Content\bootstrap\popovers.less" />
+    <Content Include="Content\bootstrap\print.less" />
+    <Content Include="Content\bootstrap\progress-bars.less" />
+    <Content Include="Content\bootstrap\responsive-embed.less" />
+    <Content Include="Content\bootstrap\responsive-utilities.less" />
+    <Content Include="Content\bootstrap\scaffolding.less" />
+    <Content Include="Content\bootstrap\tables.less" />
+    <Content Include="Content\bootstrap\theme.less" />
+    <Content Include="Content\bootstrap\thumbnails.less" />
+    <Content Include="Content\bootstrap\tooltip.less" />
+    <Content Include="Content\bootstrap\type.less" />
+    <Content Include="Content\bootstrap\utilities.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\wells.less" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\_bootstrap-datetimepicker.less" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap-theme.min.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="css\DatePicker\bootstrap-datepicker.css.map" />
+    <Content Include="css\DatePicker\bootstrap-datepicker.min.css.map" />
+    <Content Include="css\DatePicker\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="css\DatePicker\bootstrap-datepicker.standalone.min.css.map" />
+    <Content Include="css\DatePicker\bootstrap-datepicker3.css.map" />
+    <Content Include="css\DatePicker\bootstrap-datepicker3.min.css.map" />
+    <Content Include="css\DatePicker\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="css\DatePicker\bootstrap-datepicker3.standalone.min.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Site Master\SiteMaster.Master" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\PurchaseReceipt.rdlc" />
+    <EmbeddedResource Include="Resources\SalesReturn.rdlc" />
+    <EmbeddedResource Include="Resources\StockTransfer.rdlc" />
+    <EmbeddedResource Include="Resources\PickActivityRegister.rdlc" />
+    <EmbeddedResource Include="Resources\LSIPurchaseOrder.rdlc" />
+    <EmbeddedResource Include="Resources\LSISalesOrder.rdlc" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59697</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8082/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:8082/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

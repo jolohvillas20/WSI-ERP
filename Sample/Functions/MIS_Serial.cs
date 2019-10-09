@@ -1,0 +1,157 @@
+﻿using POSOINV.Models;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace POSOINV.Functions
+{
+    public class MIS_Serial
+    {
+        public static List<MIS_Serial_Model> RetrieveData(SqlConnection connection, int idMISDetail, int idSerial)
+        {
+            StringBuilder sQuery = new StringBuilder();
+
+            sQuery.Append(@"
+                         SELECT idMISSerial
+                         ,idMISDetail
+                         ,idSerial
+                         FROM a_MIS_Serial
+WHERE idMISSerial <> 0
+                        ");
+
+            if (idMISDetail != 0)
+            {
+                sQuery.Append("AND idMISDetail = @idMISDetail");
+            }
+            if (idSerial != 0)
+            {
+                sQuery.Append("AND idSerial = @idSerial");
+            }
+
+            var lmodel = new List<MIS_Serial_Model>();
+
+            connection.Open();
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = connection;
+                cmd.CommandText = sQuery.ToString();
+                cmd.CommandType = CommandType.Text;
+
+                if (idSerial != 0)
+                {
+                    SqlParameter parm2 = new SqlParameter
+                    {
+                        ParameterName = "@idSerial",
+                        SqlDbType = SqlDbType.Int,
+                        Value = idSerial
+                    };
+                    cmd.Parameters.Add(parm2);
+                }
+                if (idMISDetail != 0)
+                {
+                    SqlParameter parm2 = new SqlParameter
+                    {
+                        ParameterName = "@idMISDetail",
+                        SqlDbType = SqlDbType.Int,
+                        Value = idMISDetail
+                    };
+                    cmd.Parameters.Add(parm2);
+                }
+                var oreader = cmd.ExecuteReader();
+
+                while (oreader.Read())
+                {
+                    MIS_Serial_Model oModel = new MIS_Serial_Model
+                    {
+                        idMISSerial = (int)oreader["idMISSerial"],
+                        idMISDetail = (int)oreader["idMISDetail"],
+                        idSerial = (int)oreader["idSerial"]
+                    };
+                    lmodel.Add(oModel);
+                }
+                oreader.Close();
+                cmd.Dispose();
+            }
+
+            connection.Close();
+
+            return lmodel;
+        }
+
+        public static int Save(SqlConnection connection, MIS_Serial_Model model)
+        {
+            int returnValue = 0;
+            StringBuilder sQuery = new StringBuilder();
+
+            sQuery.Append(@"INSERT INTO a_MIS_Serial
+                             (idMISDetail
+                             ,idSerial
+                             )
+                             VALUES
+                             (@idMISDetail
+                             ,@idSerial
+                             )
+
+                             SELECT SCOPE_IDENTITY() as 'ID'
+
+                             ");
+
+            var GUID = SQL_Transact.GenerateGUID();
+
+            SQL_Transact.BeginTransaction(connection, GUID);
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = connection;
+                cmd.CommandText = sQuery.ToString();
+                cmd.CommandType = CommandType.Text;
+
+                SqlParameter parm2 = new SqlParameter
+                {
+                    ParameterName = "@idMISDetail",
+                    SqlDbType = SqlDbType.Int,
+                    Value = model.idMISDetail
+                };
+                cmd.Parameters.Add(parm2);
+
+                SqlParameter parm3 = new SqlParameter
+                {
+                    ParameterName = "@idSerial",
+                    SqlDbType = SqlDbType.Int,
+                    Value = model.idSerial
+                };
+                cmd.Parameters.Add(parm3);
+                
+                //if (cmd.ExecuteNonQuery() >= 1)
+                //    returnValue = true;
+
+                var oreader = cmd.ExecuteReader();
+                try
+                {
+                    while (oreader.Read())
+                    {
+                        returnValue = Convert.ToInt32(oreader["ID"].ToString());
+                    }
+                    oreader.Close();
+                    cmd.Dispose();
+                    cmd.Parameters.Clear();
+                    SQL_Transact.CommitTransaction(connection, GUID);
+                }
+                catch
+                {
+                    returnValue = 0;
+                    oreader.Close();
+                    cmd.Dispose();
+                    cmd.Parameters.Clear();
+                    SQL_Transact.RollbackTransaction(connection, GUID);
+                }
+            }
+            return returnValue;
+        }
+    }
+}

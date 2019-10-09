@@ -1,0 +1,533 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMaster.master.cs" Inherits="SHIELD.Site_Master.SiteMaster" %>
+
+<!DOCTYPE html>
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <title>ERP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            padding-top: 60px;
+            font-family: "Lato", sans-serif;
+        }
+        /*#0A90CF*/
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            background-color: white;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            opacity: 1;
+        }
+
+            .sidenav a, .sidenav p {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 15px;
+                color: #0A90CF;
+                display: block;
+                transition: 0.3s;
+                border: none;
+                background: none;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                outline: none;
+            }
+
+            /*.sidenav a:hover {
+                    color: #f1f1f1;
+                }*/
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        .dropdown-container {
+            display: block;
+            background-color: white;
+            padding-left: 8px;
+            opacity: 1;
+        }
+
+            .dropdown-container a {
+                color: #0A90CF;
+            }
+
+        /* Optional: Style the caret down icon */
+        .fa-caret-down {
+            float: right;
+            padding-right: 8px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+
+        .nav-side-menu {
+            overflow: auto;
+            font-family: verdana;
+            font-size: 12px;
+            font-weight: 200;
+            background-color: #2e353d;
+            position: fixed;
+            top: 50px;
+            width: 70px;
+            height: 100%;
+            color: #e1ffff;
+            z-index: 800;
+        }
+
+        #btSettings:hover {
+            background-color: #106EBE;
+        }
+
+        .PopAnimation {
+            animation: pop 0.3s linear 1;
+        }
+
+        @keyframes pop {
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .modalLoader {
+            position: fixed;
+            z-index: 3000;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.37);
+            /*filter: alpha(opacity=60);*/
+            /*opacity: 0.6;*/
+            /*-moz-opacity: 0.8;*/
+        }
+
+        .centerLoader {
+            z-index: 100000;
+            margin: 300px auto;
+            /*padding: 10px;*/
+            align-content: center;
+            width: 250px;
+            border-radius: 10px;
+            filter: alpha(opacity=100);
+            background-color: white;
+            border: 1px solid #CCCCCC;
+            /*opacity: 1;*/
+            /*-moz-opacity: 1;*/
+        }
+
+        .hideObject {
+            display: none;
+        }
+
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #0078D4;
+        }
+
+            /* Style the buttons inside the tab */
+            .tab button {
+                background-color: #0078D4;
+                color: white;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 10px 12px;
+                transition: 0.3s;
+                font-size: 14px;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: #0A90CF;
+                }
+
+                /* Create an active/current tablink class */
+                .tab button.active {
+                    background-color: #005A9E;
+                }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            /*border: 1px solid #ccc;*/
+            border-top: none;
+        }
+
+        .tabledesign {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .thdesign {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tddesign {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .labelStyle {
+            font-size: 12px;
+            font-weight: bold;
+            margin: 0px;
+        }
+
+        .labelStyle2 {
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+        <link href="Content/css/accordion.css" rel="stylesheet" />
+        <link href="Content/css/button.css" rel="stylesheet" />
+
+        <script src="Scripts/accordionajax.txt"></script>
+
+        <script src="Scripts/accordionbootstrap.txt"></script>
+        <script src="Scripts/jquery-3.2.1.min.js"></script>
+        <link href="Content/bootstrap.css" type="text/css" rel="stylesheet" />
+
+    </asp:ContentPlaceHolder>
+</head>
+
+<body style="background-color: #EEEEEE;">
+
+    <script type="text/javascript">
+        window.onload = function () {
+            document.onkeydown = function (e) {
+                return (e.which || e.keyCode) != 116;
+            };
+        }
+    </script>
+
+    <%--  <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>--%>
+
+    <form class="form-horizontal" role="form" id="form1" runat="server">
+        <div style="position: absolute; z-index: 1000">
+            <table style="width: 100%; height: 50px; position: fixed; top: 0px; background-color: #0A90CF;">
+                <tr>
+                    <td style="width: 50%; padding-left: 15px; vertical-align: central;">
+                        <table>
+                            <tr>
+                                <td><%--  id="navBar" href="../LandingPage.aspx" --%>
+                                    <a onclick="openNav()" style="color: white; font-size: 20px; margin: auto; font-weight: 700">WSI ERP</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 50%; padding-right: 15px;">
+                        <table style="float: right;">
+                            <tr>
+                                <td id="btSettings">
+                                    <asp:Button runat="server" BorderStyle="None" ID="btnLogout" OnClick="btnLogout_Click" BackColor="Transparent" Style="color: white; margin-right: 5px;" Text="Sign Out" />
+                                    <%--<a runat="server" id="A1" href="~/Login.aspx" style="color: white; margin-right: 5px;">Sign out</a>--%>
+                                </td>
+                                <td style="text-align: right; border-left: 1px solid white;">
+                                    <table style="margin-left: 5px;">
+                                        <tr>
+                                            <td>
+                                                <i class="glyphicon glyphicon-user" style="color: white;"></i>
+                                            </td>
+                                            <td>&nbsp
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="LoginName1" runat="server" ForeColor="White"></asp:Label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="color: white">x</a>
+            <%--<button class="dropdown-btn">Dropdown<i class="fa fa-caret-down"></i></button>--%>
+            <a href="/LandingPage.aspx"><b>Home</b></a>
+            <p><b>Inventory Management</b></p>
+            <div class="dropdown-container">
+                <a href="/Forms/InventoryManagement/Inventory.aspx">Inventory</a>
+                <a href="/Forms/InventoryManagement/PickActivity.aspx">Pick Activity</a>
+                <a href="/Forms/InventoryManagement/InventoryTransactions/LandingPage.aspx">Transactions</a>
+            </div>
+            <p><b>Sales Management</b></p>
+            <div class="dropdown-container">
+                <a href="/Forms/SalesManagement/SOCreation.aspx">Sales Order</a>
+                <a href="/Forms/SalesManagement/CustomerMaintenance.aspx">Customer Maintenance</a>
+                <a href="/Forms/SalesManagement/InvoiceManagement.aspx">Invoice Management</a>
+                <a href="https://lsoms.wordtext.ph:94/Login.aspx">SOMS</a>
+            </div>
+            <p><b>Purchasing</b></p>
+            <div class="dropdown-container">
+                <a href="/Forms/Purchasing/POCreation.aspx">Purchase Order</a>
+                <a href="/Forms/Purchasing/ImportShipment.aspx">Import Shipment</a>
+                <a href="/Forms/Purchasing/Announcement.aspx">Announcement</a>
+            </div>
+            <p><b>Accounting</b></p>
+            <div class="dropdown-container">
+                <a href="/Forms/Accounting/Payments.aspx">Payments</a>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById("navBar").addEventListener("click", toggleNav);
+
+            function toggleNav() {
+                navSize = document.getElementById("mySidenav").style.width;
+                if (navSize == 250) {
+                    return closeNav();
+                }
+                else {
+                    return openNav();
+                }
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+
+            function openNav() {
+                var e = document.getElementById("mySidenav");
+                if (e.style.width == '250px') {
+                    e.style.width = '0px';
+                }
+                else {
+                    e.style.width = '250px';
+                }
+            }
+
+        </script>
+        <%--   <script>
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        </script>    <h2>Animated Sidenav Example</h2>
+        <p>Click on the element below to open the side navigation menu.</p>
+        <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776; open</span>--%>
+
+
+
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <%--<asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="pnlUpdateMain">
+            <ProgressTemplate>
+                <div class="modalLoader">
+                    <div class="centerLoader" style="text-align: center;">
+                        <label style="font-size: 20px; color: dodgerblue">Loading please wait...</label>
+                    </div>
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>--%>
+        <%--<div id="dvShowErrorMessageNew" class="modalLoader" runat="server" visible="false">
+                    <div style="align-content: center; margin: 200px auto; width: 400px; z-index: 1000; background-color: white; text-align: center">
+                        <div style="margin: auto; width: 100%; background-color: #d04d4d; text-align: center; vertical-align: central; color: white;">
+                            <label style="height: 100%; margin: 2px auto; font-size: 16px;">Error Message</label>
+                            <asp:LinkButton ID="btnCloseErrorMessage" Style="float: right" runat="server" OnClick="btnCloseErrorMessage_Click"><i class="glyphicon glyphicon-remove" style="color:white;"></i></asp:LinkButton>
+                        </div>
+                        <div style="width: 100%; height: 100%">
+                            <asp:Table CellPadding="0" CellSpacing="0" runat="server" Width="100%" Height="100%">
+                                <asp:TableRow>
+                                    <asp:TableCell>
+                                        <div style="width: 100%; height: 100%; padding: 8px 8px 8px 8px;">
+                                            <asp:Table Width="100%" runat="server" CellPadding="0" CellSpacing="0">
+                                                <asp:TableRow>
+                                                    <asp:TableCell HorizontalAlign="Left">
+                                                        <label style="font-size:12px;color:lightcoral;">Error</label>
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableCell HorizontalAlign="Left">
+                                                        <asp:Panel runat="server" ScrollBars="Vertical" Height="100px">
+                                                            <asp:Label ID="lblErrorMessage" runat="server">Show Error Here..</asp:Label>
+                                                        </asp:Panel>
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        &nbsp;
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableCell HorizontalAlign="Left">
+                                                        <label style="font-size:12px;color:lightcoral;">What to do?</label>
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableCell HorizontalAlign="Left">
+                                                        <asp:Label ID="lblErrorAction" runat="server">Please email or contact Helpdesk</asp:Label>
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+                                        </div>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>
+                        </div>
+                    </div>
+                </div>
+                <div id="dvShowWarningMessage" class="modalLoader" runat="server" visible="false">
+                    <div style="align-content: center; margin: 200px auto; width: 400px; z-index: 1000; background-color: white; text-align: center">
+                        <div style="margin: auto; width: 100%; background-color: #f1a343; text-align: center; vertical-align: central; color: white;">
+                            <label style="height: 100%; margin: 2px auto; font-size: 16px;">Warning Message</label>
+                            <asp:LinkButton ID="btnCloseWarningMessage" Style="float: right" runat="server" OnClick="btnCloseWarningMessage_Click"><i class="glyphicon glyphicon-remove" style="color:white;"></i></asp:LinkButton>
+                        </div>
+                        <div style="width: 100%; height: 100%">
+                            <asp:Table CellPadding="0" CellSpacing="0" runat="server" Width="100%" Height="100%">
+                                <asp:TableRow>
+                                    <asp:TableCell>
+                                        <div style="width: 100%; height: 100%; padding: 8px 8px 8px 8px;">
+                                            <asp:Table Width="100%" runat="server" CellPadding="0" CellSpacing="0">
+                                                <asp:TableRow>
+                                                    <asp:TableCell HorizontalAlign="Center">
+                                                        <asp:Label ID="lblWarningMessage" runat="server">Show Warning Here..</asp:Label>
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        &nbsp;
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+                                        </div>
+                                    </asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>
+                        </div>
+                    </div>
+                </div>
+                <div id="modalList" runat="server" class="modalLoader hideObject PopAnimation">
+                    <div style="margin: auto; width: 80%; height: 60%; z-index: 1000; margin-top: 100px; background-color: white; text-align: center; border-radius: 3px;">
+                        <div style="padding: 4px;">
+                            <asp:LinkButton runat="server" ID="btCloseKB" Style="float: right;"><i style="color:red;" class="glyphicon glyphicon-remove"></i></asp:LinkButton>
+                        </div>
+                        <div>
+                            <h3>Knowledge Base</h3>
+                        </div>
+                        <div>
+                            <asp:GridView ID="grvAttachments" runat="server" HeaderStyle-BackColor="Gray"
+                                HeaderStyle-ForeColor="White" BorderColor="Black" GridLines="Horizontal"
+                                Width="100%" AutoGenerateColumns="true" ShowHeaderWhenEmpty="True"
+                                OnSelectedIndexChanged="grvAttachments_SelectedIndexChanged"
+                                OnRowDataBound="grvAttachments_RowDataBound">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            </asp:GridView>
+                        </div>
+                    </div>
+                </div>
+               <div id="myModal" runat="server" visible="false" class="w3-modal w3-round modalLoader">
+                    <div class="w3-modal-content w3-animate-top w3-card-4 w3-round" style="width: 90%;">
+                        <!-- Modal content-->
+                        <div class="w3-text-white w3-padding" style="background-color: #0A90CF;">
+                            <table runat="server" style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <h3 class="labelStyle">File Preview</h3>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="w3-padding">
+                            <asp:Panel ID="pnlModal" runat="server">
+                                <div>
+                                    <asp:Literal ID="ltEmbed" runat="server" />
+                                </div>
+                            </asp:Panel>
+                        </div>
+                    </div>
+                </div>--%>
+        <%--<asp:UpdatePanel runat="server" ID="pnlUpdateMain">
+            <ContentTemplate>--%>
+        <div id="Main" style="margin-right: 25px; margin-left: 25px">
+            <div>
+                <div style="font-family: sans-serif;">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+        <%--</ContentTemplate>
+        </asp:UpdatePanel>--%>
+
+
+
+        <%-- Side Menu --%>
+        <br />
+        <%--<center><hr style="padding: 0px; margin: 0px;width: 70% "/></center>--%>
+        <p style="padding: 0px; margin: 0px; text-align: center; font-size: x-small; color: #808080;">&copy;Copyright 2019</p>
+        <p style="padding: 0px; margin: 0px; text-align: center; font-size: x-small; color: #808080;">Wordtext Systems, inc.</p>
+        <p style="text-align: center">
+            <%-- <img src="/wof/images/ismg_3_logos.gif" alt="" style="width: 60px; height: 60px" />--%>
+            <%--<img src="/Images/ismg_3_logos.gif" alt="" style="width: 60px; height: 60px" />--%>
+        </p>
+        <p style="padding: 0px; margin: 0px; text-align: center; font-size: x-small; color: #808080;">helpdesk@wsiphil.com.ph</p>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            //Knowledge Base
+            $('#btKnowledge').click(function () {
+                $('#modalList').removeClass('hideObject');
+            });
+
+            $('#btCloseKB').click(function () {
+                ('#modalList').hide();
+            });
+        })
+    </script>
+</body>
+</html>
+

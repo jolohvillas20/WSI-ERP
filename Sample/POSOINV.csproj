@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6202D00-35A7-423F-842B-4677FA9FBA13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>POSOINV</RootNamespace>
+    <AssemblyName>POSOINV</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Functions\Additional_Charge.cs" />
+    <Compile Include="Functions\ControlChars.cs" />
+    <Compile Include="Functions\Cost_Adjustment.cs" />
+    <Compile Include="Functions\Credit_Term.cs" />
+    <Compile Include="Functions\Currency_Code.cs" />
+    <Compile Include="Functions\Customer_Details.cs" />
+    <Compile Include="Functions\Forex_Rate.cs" />
+    <Compile Include="Functions\Import_Shipment_Detail.cs" />
+    <Compile Include="Functions\Import_Shipment_Header.cs" />
+    <Compile Include="Functions\Invoice.cs" />
+    <Compile Include="Functions\Item_Class.cs" />
+    <Compile Include="Functions\Item_Master.cs" />
+    <Compile Include="Functions\Item_Serial.cs" />
+    <Compile Include="Functions\Item_Subclass.cs" />
+    <Compile Include="Functions\Item_Tax.cs" />
+    <Compile Include="Functions\Login.cs" />
+    <Compile Include="Functions\Logs.cs" />
+    <Compile Include="Functions\MIR_Detail.cs" />
+    <Compile Include="Functions\MIS_Detail.cs" />
+    <Compile Include="Functions\MIR_Header.cs" />
+    <Compile Include="Functions\MIS_Header.cs" />
+    <Compile Include="Functions\MIR_Serial.cs" />
+    <Compile Include="Functions\MIS_Serial.cs" />
+    <Compile Include="Functions\Pick_Activity.cs" />
+    <Compile Include="Functions\Pick_Detail.cs" />
+    <Compile Include="Functions\Pick_Header.cs" />
+    <Compile Include="Functions\Report_Request.cs" />
+    <Compile Include="Functions\Stock_Transfer_Serial.cs" />
+    <Compile Include="Functions\Pick_Serial.cs" />
+    <Compile Include="Functions\PO_Charges.cs" />
+    <Compile Include="Functions\PO_Detail.cs" />
+    <Compile Include="Functions\PO_Header.cs" />
+    <Compile Include="Functions\Purchase_Reciept.cs" />
+    <Compile Include="Functions\Reason_Code.cs" />
+    <Compile Include="Functions\Return_Detail.cs" />
+    <Compile Include="Functions\Return_Serial.cs" />
+    <Compile Include="Functions\Sales_Return.cs" />
+    <Compile Include="Functions\Site_Loc.cs" />
+    <Compile Include="Functions\SO_Creation.cs" />
+    <Compile Include="Functions\Stock_Transfer_Detail.cs" />
+    <Compile Include="Functions\SO_Detail.cs" />
+    <Compile Include="Functions\Stock_Transfer_Header.cs" />
+    <Compile Include="Functions\SO_Header.cs" />
+    <Compile Include="Functions\SO_Report.cs" />
+    <Compile Include="Functions\SQL_Transact.cs" />
+    <Compile Include="Functions\Supplier.cs" />
+    <Compile Include="Functions\Trans_code.cs" />
+    <Compile Include="Functions\Trans_History.cs" />
+    <Compile Include="Functions\UM.cs" />
+    <Compile Include="Functions\Users.cs" />
+    <Compile Include="Functions\User_Product.cs" />
+    <Compile Include="Models\Additional_Charge_Model.cs" />
+    <Compile Include="Models\clsLineItem.cs" />
+    <Compile Include="Models\Cost_Adjustment_Model.cs" />
+    <Compile Include="Models\Currency_Code_Model.cs" />
+    <Compile Include="Models\Customer_Details_Model.cs" />
+    <Compile Include="Models\Forex_Rate_Model.cs" />
+    <Compile Include="Models\Import_Shipment_Detail_Model.cs" />
+    <Compile Include="Models\Import_Shipment_Header_Model.cs" />
+    <Compile Include="Models\Invoice_Model.cs" />
+    <Compile Include="Models\Item_Class_Model.cs" />
+    <Compile Include="Models\Item_Master_Model.cs" />
+    <Compile Include="Models\Item_Serial_Model.cs" />
+    <Compile Include="Models\Item_Subclass_Model.cs" />
+    <Compile Include="Models\Item_Tax_Model.cs" />
+    <Compile Include="Models\Login_Model.cs" />
+    <Compile Include="Models\Logs_Model.cs" />
+    <Compile Include="Models\MIR_Detail_Model.cs" />
+    <Compile Include="Models\MIS_Detail_Model.cs" />
+    <Compile Include="Models\MIR_Header_Model.cs" />
+    <Compile Include="Models\MIS_Header_Model.cs" />
+    <Compile Include="Models\MIR_Serial_Model.cs" />
+    <Compile Include="Models\MIS_Serial_Model.cs" />
+    <Compile Include="Models\Pick_Activity_Model.cs" />
+    <Compile Include="Models\Pick_Detail_Model.cs" />
+    <Compile Include="Models\Pick_Header_Model.cs" />
+    <Compile Include="Models\Report_Request_Model.cs" />
+    <Compile Include="Models\STDownload_Model.cs" />
+    <Compile Include="Models\Stock_Transfer_Serial_Model.cs" />
+    <Compile Include="Models\Pick_Serial_Model.cs" />
+    <Compile Include="Models\PO_Charges_Model.cs" />
+    <Compile Include="Models\PO_Detail_Model.cs" />
+    <Compile Include="Models\PO_Header_Model.cs" />
+    <Compile Include="Models\Purchase_Reciept_Model.cs" />
+    <Compile Include="Models\Reason_Code_Model.cs" />
+    <Compile Include="Models\Return_Detail_Model.cs" />
+    <Compile Include="Models\Return_Header_Model.cs" />
+    <Compile Include="Models\Return_Serial_Model.cs" />
+    <Compile Include="Models\Sales_Return_Model.cs" />
+    <Compile Include="Models\Site_Model.cs" />
+    <Compile Include="Models\SO_Creation_Model.cs" />
+    <Compile Include="Models\Credit_Term_Model.cs" />
+    <Compile Include="Models\Stock_Transfer_Header_Model.cs" />
+    <Compile Include="Models\Stock_Transfer_Detail_Model.cs" />
+    <Compile Include="Models\SO_Detail_Model.cs" />
+    <Compile Include="Models\SO_Header_Model.cs" />
+    <Compile Include="Models\Supplier_Model.cs" />
+    <Compile Include="Models\Trans_Code_Model.cs" />
+    <Compile Include="Models\Trans_History_Model.cs" />
+    <Compile Include="Models\UM_Model.cs" />
+    <Compile Include="Models\Users_Model.cs" />
+    <Compile Include="Models\User_Product_Model.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Functions\Return_Header.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

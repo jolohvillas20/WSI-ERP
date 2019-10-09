@@ -1,0 +1,3 @@
+﻿function alertMessage() {
+    alert("Test");
+}

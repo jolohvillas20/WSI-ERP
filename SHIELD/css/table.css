@@ -1,0 +1,30 @@
+﻿body {
+}
+/*Generated from Designmycss.com*/
+table
+{
+    color:#000000;
+    font:14px Georgia, serif;
+    padding:0px;
+}
+ 
+th
+{
+    color:#000000;
+    font-weight:bold;
+    padding:0px;
+    text-align:center;
+    vertical-align:top;
+}
+ 
+tr
+{
+    font-weight:normal;
+}
+ 
+td
+{
+    padding:0px;
+    text-align:left;
+    vertical-align:top;
+}

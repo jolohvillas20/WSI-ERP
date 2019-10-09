@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsStockTransfer" targetNamespace="http://tempuri.org/dsStockTransfer.xsd" xmlns:mstns="http://tempuri.org/dsStockTransfer.xsd" xmlns="http://tempuri.org/dsStockTransfer.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsStockTransfer" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsStockTransfer" msprop:Generator_UserDSName="dsStockTransfer">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtStockTransfer" msprop:Generator_TableClassName="dtStockTransferDataTable" msprop:Generator_TableVarName="tabledtStockTransfer" msprop:Generator_TablePropName="dtStockTransfer" msprop:Generator_RowDeletingName="dtStockTransferRowDeleting" msprop:Generator_RowChangingName="dtStockTransferRowChanging" msprop:Generator_RowEvHandlerName="dtStockTransferRowChangeEventHandler" msprop:Generator_RowDeletedName="dtStockTransferRowDeleted" msprop:Generator_UserTableName="dtStockTransfer" msprop:Generator_RowChangedName="dtStockTransferRowChanged" msprop:Generator_RowEvArgName="dtStockTransferRowChangeEvent" msprop:Generator_RowClassName="dtStockTransferRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Item_Number" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnItem_Number" msprop:Generator_ColumnPropNameInRow="Item_Number" msprop:Generator_ColumnPropNameInTable="Item_NumberColumn" msprop:Generator_UserColumnName="Item_Number" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Description" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msdata:Caption="Item_Number" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Qty" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msdata:Caption="Item_Number" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" msprop:Generator_UserColumnName="Qty" type="xs:anyType" minOccurs="0" />
+              <xs:element name="UM" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msdata:Caption="Item_Number" msprop:Generator_ColumnVarNameInTable="columnUM" msprop:Generator_ColumnPropNameInRow="UM" msprop:Generator_ColumnPropNameInTable="UMColumn" msprop:Generator_UserColumnName="UM" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Serial_No" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnSerial_No" msprop:Generator_ColumnPropNameInRow="Serial_No" msprop:Generator_ColumnPropNameInTable="Serial_NoColumn" msprop:Generator_UserColumnName="Serial_No" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPurchaseReciept" targetNamespace="http://tempuri.org/dsPurchaseReciept.xsd" xmlns:mstns="http://tempuri.org/dsPurchaseReciept.xsd" xmlns="http://tempuri.org/dsPurchaseReciept.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPurchaseReciept" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsPurchaseReciept" msprop:Generator_UserDSName="dsPurchaseReciept">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtPurchaseReciept" msprop:Generator_TableClassName="dtPurchaseRecieptDataTable" msprop:Generator_TableVarName="tabledtPurchaseReciept" msprop:Generator_TablePropName="dtPurchaseReciept" msprop:Generator_RowDeletingName="dtPurchaseRecieptRowDeleting" msprop:Generator_RowChangingName="dtPurchaseRecieptRowChanging" msprop:Generator_RowEvHandlerName="dtPurchaseRecieptRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPurchaseRecieptRowDeleted" msprop:Generator_UserTableName="dtPurchaseReciept" msprop:Generator_RowChangedName="dtPurchaseRecieptRowChanged" msprop:Generator_RowEvArgName="dtPurchaseRecieptRowChangeEvent" msprop:Generator_RowClassName="dtPurchaseRecieptRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ItemNumber" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnItemNumber" msprop:Generator_ColumnPropNameInRow="ItemNumber" msprop:Generator_ColumnPropNameInTable="ItemNumberColumn" msprop:Generator_UserColumnName="ItemNumber" type="xs:anyType" minOccurs="0" />
+              <xs:element name="ItemDescription" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnItemDescription" msprop:Generator_ColumnPropNameInRow="ItemDescription" msprop:Generator_ColumnPropNameInTable="ItemDescriptionColumn" msprop:Generator_UserColumnName="ItemDescription" type="xs:anyType" minOccurs="0" />
+              <xs:element name="RecievedQuantity" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnRecievedQuantity" msprop:Generator_ColumnPropNameInRow="RecievedQuantity" msprop:Generator_ColumnPropNameInTable="RecievedQuantityColumn" msprop:Generator_UserColumnName="RecievedQuantity" type="xs:anyType" minOccurs="0" />
+              <xs:element name="UM" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnUM" msprop:Generator_ColumnPropNameInRow="UM" msprop:Generator_ColumnPropNameInTable="UMColumn" msprop:Generator_UserColumnName="UM" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Grade" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnGrade" msprop:Generator_ColumnPropNameInRow="Grade" msprop:Generator_ColumnPropNameInTable="GradeColumn" msprop:Generator_UserColumnName="Grade" type="xs:anyType" minOccurs="0" />
+              <xs:element name="ForQC" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnForQC" msprop:Generator_ColumnPropNameInRow="ForQC" msprop:Generator_ColumnPropNameInTable="ForQCColumn" msprop:Generator_UserColumnName="ForQC" type="xs:anyType" minOccurs="0" />
+              <xs:element name="UnitConversion" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnUnitConversion" msprop:Generator_ColumnPropNameInRow="UnitConversion" msprop:Generator_ColumnPropNameInTable="UnitConversionColumn" msprop:Generator_UserColumnName="UnitConversion" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
